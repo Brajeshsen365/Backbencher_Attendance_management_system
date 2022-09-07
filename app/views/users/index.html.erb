@@ -1,0 +1,28 @@
+
+<table border="2">
+  	<tr>
+		<th>Email</th>
+		<th>First_Name</th>
+		<th>Lastst_Name</th>
+		<th>Date_of_birth</th>
+		<th>Address</th>
+		<th>Contact_no</th>
+		<th>Gender</th>
+		<th>Designation</th>
+		<th>Role</th>
+	</tr>
+<% @users.each do |user| %>
+
+<tr>
+<td><%= user.email %></td>
+<td><%= user.first_name %></td>
+<td><%= user.last_name %></td>
+<td><%= user.date_of_birth %></td>
+<td><%= user.address %></td>
+<td><%= user.contact_no %></td>
+<td><%= user.gender %></td>
+<td><%= user.designation %></td>
+<td><%= user.roles.pluck(:name) %></td>
+</tr>
+<% end %>
+</table>

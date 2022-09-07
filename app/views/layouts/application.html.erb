@@ -1,0 +1,26 @@
+
+<b><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></b><br />
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BackbencherAttendanceManagementSystem</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <% if user_signed_in? %>
+    Are You Admin? <%= current_user.has_role? :admin %>
+    <%= current_user.roles.pluck(:name) %><br /><br />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+     <%= image_tag(current_user.image.url, alt: 'Image', class: "rounded-circle", width: "40px", height: "40px") %>
+    </a><br /><br>
+     <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+  </body>
+</html><br />
